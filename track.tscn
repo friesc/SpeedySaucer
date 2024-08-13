@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://xlc17saulxly"]
+
+[ext_resource type="Texture2D" uid="uid://cseg8yqkjq78e" path="res://darkPurple.png" id="1_vlxd1"]
+
+[node name="Track" type="Area2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("1_vlxd1")
+polygon = PackedVector2Array(-152, -56, -156, 82, -76, 84, 35, 226, -151, 405, 2, 552, 168, 616, 405, 588, 542, 463, 544, 258, 375, 154, 818, 130, 701, -15, 399, -63, 402, -332, 497, -377, 403, -480, 178, -373, 268, -278, 333, -307, 315, 0, 641, 39, 669, 75, 256, 96, 265, 160, 467, 283, 461, 413, 371, 540, 213, 546, 66, 494, -42, 409, 139, 214, 18, 81, 114, 81, 113, -59)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(6, 0)
+polygon = PackedVector2Array(-152, -56, -156, 82, -76, 84, 35, 226, -151, 405, 2, 552, 168, 616, 405, 588, 542, 463, 544, 258, 375, 154, 818, 130, 701, -15, 399, -63, 402, -332, 497, -377, 403, -480, 178, -373, 268, -278, 333, -307, 315, 0, 641, 39, 669, 75, 256, 96, 265, 160, 467, 283, 461, 413, 371, 540, 213, 546, 66, 494, -42, 409, 139, 214, 18, 81, 114, 81, 113, -59)

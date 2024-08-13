@@ -1,18 +1,67 @@
-[gd_scene load_steps=4 format=3 uid="uid://f7imq2iqewl5"]
+[gd_scene load_steps=7 format=3 uid="uid://f7imq2iqewl5"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_3k5v2"]
 [ext_resource type="Texture2D" uid="uid://wp7u0oidgpgq" path="res://purple.png" id="1_ug0ng"]
 [ext_resource type="PackedScene" uid="uid://d3qhkfna6u3b8" path="res://player.tscn" id="2_n38xw"]
+[ext_resource type="PackedScene" uid="uid://xlc17saulxly" path="res://track.tscn" id="3_oorel"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c3n6d"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_wclij"]
+font_size = 24
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_3k5v2")
 
-[node name="Player" parent="." instance=ExtResource("2_n38xw")]
-z_index = 1
+[node name="Graphics" type="Node" parent="."]
 
-[node name="Background" type="TextureRect" parent="."]
-offset_top = 1.0
-offset_right = 1152.0
-offset_bottom = 649.0
+[node name="CanvasLayer" type="CanvasLayer" parent="Graphics"]
+layer = -1
+
+[node name="Background" type="TextureRect" parent="Graphics/CanvasLayer"]
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_ug0ng")
 stretch_mode = 1
+
+[node name="End" type="Label" parent="Graphics"]
+offset_left = 401.0
+offset_top = -351.0
+offset_right = 496.0
+offset_bottom = -306.0
+rotation = -0.450952
+text = "END"
+label_settings = SubResource("LabelSettings_c3n6d")
+
+[node name="Start" type="Label" parent="Graphics"]
+offset_left = 76.0
+offset_top = -1.0
+offset_right = 171.0
+offset_bottom = 44.0
+text = "START"
+label_settings = SubResource("LabelSettings_c3n6d")
+
+[node name="Tutorial" type="Label" parent="Graphics"]
+offset_left = -429.0
+offset_top = 16.0
+offset_right = -65.0
+offset_bottom = 205.0
+text = "Rules:
+- Use Arrows or WASD
+- Go from START to END
+- Stay within the track"
+label_settings = SubResource("LabelSettings_wclij")
+
+[node name="Track" parent="." instance=ExtResource("3_oorel")]
+position = Vector2(148, 53)
+
+[node name="Player" parent="." instance=ExtResource("2_n38xw")]
+z_index = 1
+position = Vector2(124, 64)
+
+[connection signal="body_exited" from="Track" to="." method="_on_track_body_exited"]

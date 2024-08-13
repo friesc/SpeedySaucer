@@ -1,12 +1,6 @@
 extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
+func _on_track_body_exited(body: RigidBody2D) -> void:
+	get_tree().reload_current_scene()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta) -> void:
-	
-	pass
